@@ -1,0 +1,3 @@
+
+// Active: 1774374296168@@cluster0.kvtwvr2.mongodb.net@443@aula
+db("aula").collection("personagens").find().limit(1);

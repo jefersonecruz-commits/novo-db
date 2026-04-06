@@ -1,0 +1,15 @@
+// Active: 1774374296168@@cluster0.kvtwvr2.mongodb.net@443@aula
+db("aula")
+  .collection("personagens")
+  .insertMany([
+    {
+      nome: "Big Mom",
+      fruta: "Soul",
+      idade: 68,
+    },
+    {
+      nome: "Kaido",
+      fruta: "Dragon",
+      idade: 59,
+    },
+  ]);

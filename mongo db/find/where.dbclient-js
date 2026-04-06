@@ -1,0 +1,76 @@
+// Active: 1774374296168@@cluster0.kvtwvr2.mongodb.net@443@aula
+db("aula").collection("personagens").find({
+  nome: "Monkey D. Luffy",
+});
+
+db("aula").collection("personagens").find({
+  idade: 19,
+});
+
+db("aula")
+  .collection("personagens")
+  .find({
+    idade: {
+      $gt: 19,
+    },
+  });
+
+db("aula")
+  .collection("personagens")
+  .find({
+    idade: {
+      $lt: 21,
+    },
+  });
+
+db("aula")
+  .collection("personagens")
+  .find({
+    idade: {
+      $gte: 19,
+    },
+  });
+
+db("aula")
+  .collection("personagens")
+  .find({
+    idade: {
+      $lte: 21,
+    },
+  });
+
+db("aula").collection("personagens").find({
+  idade: 19,
+  nome: "Monkey D. Luffy",
+});
+
+db("aula")
+  .collection("personagens")
+  .find({
+    idade: {
+      $gt: 18,
+      $lt: 21,
+    },
+  });
+
+db("aula")
+  .collection("personagens")
+  .find({
+    $or: [{ idade: { $lt: 20 } }, { idade: { $gt: 20 } }],
+  });
+
+db("aula")
+  .collection("personagens")
+  .find({
+    idade: {
+      $ne: 19,
+    },
+  });
+
+db("aula")
+  .collection("personagens")
+  .find({
+    nome: {
+      $regex: "Luffy",
+    },
+  });

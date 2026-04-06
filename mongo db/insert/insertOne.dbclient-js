@@ -1,0 +1,35 @@
+// Active: 1774374296168@@marcoarthomaz_db_user@null@aula
+db("aula").collection("personagens").insertOne({
+  nome: "Gecko Moria",
+  fruta: "Shadow",
+  idade: 48,
+});
+
+db("aula").collection("origens").insertOne({
+  local: "New World",
+  ilha: "Ilha Hachinosu",
+});
+
+db("aula")
+  .collection("frutas")
+  .insertMany([
+    {
+      nome: "Yami Yami no Mi",
+      tipo: "Logia",
+    },
+    {
+      nome: "Gura Gura no Mi",
+      tipo: "Paramecia",
+    },
+  ]);
+
+db("aula")
+  .collection("personagens")
+  .insertOne({
+    nome: "Marshall D. Teach",
+    frutas_ids: [
+      ObjectID("69cbfccd66f79eeccd849cc8"),
+      ObjectID("69cbfccd66f79eeccd849cc9"),
+    ],
+    origem_id: ObjectID("69cbfc1e66f79eeccd849cc7"),
+  });

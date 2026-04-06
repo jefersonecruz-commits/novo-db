@@ -1,0 +1,17 @@
+// Active: 1774374296168@@marcoarthomaz_db_user@null@aula
+// Agrupar as frutas pelo tipo
+// Inserir uma lista com os nomes das frutas de cada tipo
+// Inserir lista de personagens que comeram cada tipo de fruta
+db("aula")
+  .collection("frutas")
+  .aggregate([
+    {
+      $group: {
+        _id: "$tipo",
+        frutas: { $push: "$nome" },
+      },
+      $unwind: {
+        from: "frutas"
+      } 
+    },
+  ]);

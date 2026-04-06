@@ -1,0 +1,14 @@
+db("aula").collection("frutas").aggregate([
+    {
+        $lookup: {
+        from: "personagens",
+        localField: "_id",
+        foreingnField: "frutas_ids",
+        as: "personagens"
+  
+    },
+    },
+    {
+        $unwind: "personagens"
+    },
+])

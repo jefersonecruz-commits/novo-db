@@ -1,0 +1,32 @@
+db("aula")
+  .collection("personagens")
+  .aggregate([
+    {
+      $match: {
+        origem_id: { $exists: true },
+        frutas_ids: {
+          $exists: true,
+          $not: { $size: 0 },
+        },
+      },
+    },
+    {
+      $lookup: {
+        from: "origens",
+        localField: "origem_id",
+        foreignField: "_id",
+        as: "origem",
+      },
+    },
+    {
+      $lookup: {
+        from: "frutas",
+        localField: "frutas_ids",
+        foreignField: "_id",
+        as: "frutas",
+      },
+    },
+    {
+      $unset: ["origem_id", "frutas_ids"],
+    },
+  ]);
